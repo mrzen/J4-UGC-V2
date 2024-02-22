@@ -16,6 +16,16 @@ CREATE TABLE IF NOT EXISTS `#__ugc_reviews` (
 `user_name` VARCHAR(255)  NOT NULL ,
 `user_location` VARCHAR(255)  NOT NULL ,
 `country` VARCHAR(255)  NOT NULL ,
+`image1` TEXT NULL ,
+`image2` TEXT NULL ,
+`image3` TEXT NULL ,
+`image4` TEXT NULL ,
+`image5` TEXT NULL ,
+`image6` TEXT NULL ,
+`image7` TEXT NULL ,
+`image8` TEXT NULL ,
+`image9` TEXT NULL ,
+`image10` TEXT NULL ,
 `videos` VARCHAR(255)  NULL  DEFAULT "",
 `review_reply` TEXT NULL ,
 PRIMARY KEY (`id`)
@@ -40,6 +50,16 @@ CREATE TABLE IF NOT EXISTS `#__ugc_images` (
 `image_path` VARCHAR(255)  NOT NULL ,
 `title` VARCHAR(255)  NULL  DEFAULT "",
 `created_at` DATETIME NULL  DEFAULT NULL ,
+`image1` TEXT NULL ,
+`image2` TEXT NULL ,
+`image3` TEXT NULL ,
+`image4` TEXT NULL ,
+`image5` TEXT NULL ,
+`image6` TEXT NULL ,
+`image7` TEXT NULL ,
+`image8` TEXT NULL ,
+`image9` TEXT NULL ,
+`image10` TEXT NULL ,
 PRIMARY KEY (`id`)
 ,KEY `idx_state` (`state`)
 ,KEY `idx_checked_out` (`checked_out`)

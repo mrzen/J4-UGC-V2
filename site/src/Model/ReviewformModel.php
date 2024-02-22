@@ -318,6 +318,67 @@ class ReviewformModel extends FormModel
 		$state = (!empty($data['state'])) ? 1 : 0;
 		$user  = Factory::getApplication()->getIdentity();
 
+		$data['state'] = 0;
+
+		$holidayCode = $data['trip_code'];
+		// GraphQL Query to get main holiday data
+		$client = Factory::getContainer()->get('rezkit.tours');
+		$v = $client->query(<<<'GRAPHQL'
+
+		query holiday($holidayCode: String!) {
+				holiday(code: $holidayCode) {
+					id
+					code
+					categories {
+						name
+						parent {
+							name
+						}
+					}
+					versions(published: true) {
+							id
+							name
+							code
+							locations {
+								name
+							}
+						}
+				}
+		}
+		GRAPHQL
+		, ['holidayCode' => $holidayCode,
+		] );
+
+		// ----------------------------------------------------
+		// Execute fetch of holiday data from GraphQL query
+		// ----------------------------------------------------
+		$this->holidayData = $v->getData();
+
+		if ($errors = $v->getErrors()) {
+			dump($errors);
+		}
+    // Extract location names and add them to tags
+    foreach ($this->holidayData['holiday']['versions'] as $version) {
+        foreach ($version['locations'] as $location) {
+            $tags[] = '#new#'.$location['name'];
+        }
+    }
+
+		foreach ($this->holidayData['holiday']['categories'] as $category) {
+			$tags[] = '#new#'.$category['name'];
+			if (isset($category['parent'])) {
+				$tags[] = '#new#'.$category['parent']['name'];
+			}
+		}
+
+    // If tags exist in $data and it's not an array, convert it to an array
+    if (array_key_exists('tags', $data) && !is_array($data['tags']) && !empty($data['tags'])) {
+        $data['tags'] = [$data['tags']];
+    }
+
+    // Merge extracted tags with existing tags (if any)
+    $data['tags'] = array_merge($data['tags'] ?? [], $tags);
+		
 		
 		if ($id)
 		{

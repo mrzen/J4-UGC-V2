@@ -1,34 +1,34 @@
 <?xml version="1.0"?>
 <component>
   <table action="add" table_name="#__ugc_reviews" storage_engine="" collation="utf8mb4_unicode_ci">
+    <field field_name="image1" field_type="TEXT" description=""/>
     <field action="add" field_name="created_at" field_type="DATETIME" description=""/>
     <field action="add" field_name="review_reply" field_type="TEXT" description=""/>
+    <field action="add" field_name="image2" field_type="TEXT" description=""/>
     <field action="add" field_name="trip_code" field_type="VARCHAR" field_length="255" description=""/>
     <field action="add" field_name="id" field_type="INT" field_length="11" is_autoincrement="1" index="primary" description=""/>
+    <field action="add" field_name="image3" field_type="TEXT" description=""/>
     <field action="add" field_name="rating" field_type="DOUBLE" description="Enter your rating out of 5 stars"/>
     <field action="add" field_name="state" field_type="TINYINT" field_length="1" index="index" description=""/>
+    <field action="add" field_name="image4" field_type="TEXT" description=""/>
     <field action="add" field_name="review_title" field_type="VARCHAR" field_length="255" description="Add a title for your review"/>
     <field action="add" field_name="ordering" field_type="INT" field_length="11" index="index" description=""/>
+    <field action="add" field_name="image5" field_type="TEXT" description=""/>
     <field action="add" field_name="review_content" field_type="TEXT" description="Tell us about your experience"/>
     <field action="add" field_name="checked_out" field_type="INT" field_length="11" index="index" description=""/>
+    <field action="add" field_name="image6" field_type="TEXT" description=""/>
     <field action="add" field_name="user_id" field_type="VARCHAR" field_length="255" description=""/>
     <field action="add" field_name="checked_out_time" field_type="DATETIME" description=""/>
+    <field action="add" field_name="image7" field_type="TEXT" description=""/>
     <field action="add" field_name="user_name" field_type="VARCHAR" field_length="255" description="Enter your name (this will be displayed on our website)"/>
     <field action="add" field_name="created_by" field_type="INT" field_length="11" index="index" description=""/>
+    <field action="add" field_name="image8" field_type="TEXT" description=""/>
     <field action="add" field_name="user_location" field_type="VARCHAR" field_length="255" description="(town, county or country, this will be displayed on our website.)"/>
     <field action="add" field_name="modified_by" field_type="INT" field_length="11" index="index" description=""/>
+    <field action="add" field_name="image9" field_type="TEXT" description=""/>
     <field action="add" field_name="country" field_type="VARCHAR" field_length="255" description="Enter the country of your holiday"/>
+    <field action="add" field_name="image10" field_type="TEXT" description=""/>
     <field action="add" field_name="videos" field_type="VARCHAR" field_length="255" description="Add a video of your holiday (Youtube or Vimeo link)"/>
-    <field action="remove" field_name="image1"/>
-    <field action="remove" field_name="image2"/>
-    <field action="remove" field_name="image3"/>
-    <field action="remove" field_name="image4"/>
-    <field action="remove" field_name="image5"/>
-    <field action="remove" field_name="image6"/>
-    <field action="remove" field_name="image7"/>
-    <field action="remove" field_name="image8"/>
-    <field action="remove" field_name="image9"/>
-    <field action="remove" field_name="image10"/>
   </table>
   <table action="add" table_name="#__ugc_images" storage_engine="" collation="utf8mb4_unicode_ci">
     <field action="add" field_name="id" field_type="INT" field_length="11" is_autoincrement="1" index="primary" description=""/>
@@ -42,6 +42,16 @@
     <field action="add" field_name="image_path" field_type="VARCHAR" field_length="255" description=""/>
     <field action="add" field_name="title" field_type="VARCHAR" field_length="255" description=""/>
     <field action="add" field_name="created_at" field_type="DATETIME" description=""/>
+    <field field_name="image1" field_type="TEXT" description=""/>
+    <field action="add" field_name="image2" field_type="TEXT" description=""/>
+    <field action="add" field_name="image3" field_type="TEXT" description=""/>
+    <field action="add" field_name="image4" field_type="TEXT" description=""/>
+    <field action="add" field_name="image5" field_type="TEXT" description=""/>
+    <field action="add" field_name="image6" field_type="TEXT" description=""/>
+    <field action="add" field_name="image7" field_type="TEXT" description=""/>
+    <field action="add" field_name="image8" field_type="TEXT" description=""/>
+    <field action="add" field_name="image9" field_type="TEXT" description=""/>
+    <field action="add" field_name="image10" field_type="TEXT" description=""/>
     <field field_name="asset_id" field_type="int" field_length="11"/>
   </table>
 </component>

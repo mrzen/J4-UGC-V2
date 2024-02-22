@@ -82,6 +82,16 @@
 		<option value="#__ugc_reviews:user_location">user_location</option>
 		<option value="#__ugc_reviews:country">country</option>
 		<option value="#__ugc_reviews:tags">tags</option>
+		<option value="#__ugc_reviews:image1">image1</option>
+		<option value="#__ugc_reviews:image2">image2</option>
+		<option value="#__ugc_reviews:image3">image3</option>
+		<option value="#__ugc_reviews:image4">image4</option>
+		<option value="#__ugc_reviews:image5">image5</option>
+		<option value="#__ugc_reviews:image6">image6</option>
+		<option value="#__ugc_reviews:image7">image7</option>
+		<option value="#__ugc_reviews:image8">image8</option>
+		<option value="#__ugc_reviews:image9">image9</option>
+		<option value="#__ugc_reviews:image10">image10</option>
 		<option value="#__ugc_reviews:videos">videos</option>
 		<option value="#__ugc_reviews:review_reply">review_reply</option>
 	</group>
@@ -93,6 +103,16 @@
 		<option value="#__ugc_images:image_path">image_path</option>
 		<option value="#__ugc_images:title">title</option>
 		<option value="#__ugc_images:created_at">created_at</option>
+		<option value="#__ugc_images:image1">image1</option>
+		<option value="#__ugc_images:image2">image2</option>
+		<option value="#__ugc_images:image3">image3</option>
+		<option value="#__ugc_images:image4">image4</option>
+		<option value="#__ugc_images:image5">image5</option>
+		<option value="#__ugc_images:image6">image6</option>
+		<option value="#__ugc_images:image7">image7</option>
+		<option value="#__ugc_images:image8">image8</option>
+		<option value="#__ugc_images:image9">image9</option>
+		<option value="#__ugc_images:image10">image10</option>
 	</group>
                 </field>
                 <field 

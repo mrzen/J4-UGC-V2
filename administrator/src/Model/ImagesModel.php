@@ -49,6 +49,16 @@ class ImagesModel extends ListModel
 				'image_path', 'a.image_path',
 				'title', 'a.title',
 				'created_at', 'a.created_at',
+				'image1', 'a.image1',
+				'image2', 'a.image2',
+				'image3', 'a.image3',
+				'image4', 'a.image4',
+				'image5', 'a.image5',
+				'image6', 'a.image6',
+				'image7', 'a.image7',
+				'image8', 'a.image8',
+				'image9', 'a.image9',
+				'image10', 'a.image10',
 			);
 		}
 

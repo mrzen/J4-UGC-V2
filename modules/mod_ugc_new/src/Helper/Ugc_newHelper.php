@@ -151,6 +151,76 @@ Class Ugc_newHelper
 		case 'tags':
 		$result = self::loadValueFromExternalTable('#__tags', 'id', 'title', $field_value);
 		break;
+		case 'image1':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image2':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image3':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image4':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image5':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image6':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image7':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image8':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image9':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image10':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/ugc/images/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
 		case 'videos':
 		$result = $field_value;
 		break;
@@ -187,6 +257,76 @@ Class Ugc_newHelper
 		break;
 		case 'created_at':
 		$result = $field_value;
+		break;
+		case 'image1':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image2':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image3':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image4':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image5':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image6':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image7':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image8':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image9':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
+		break;
+		case 'image10':
+						if (!empty($field_value)) {
+							$result = JPATH_ADMINISTRATOR . 'components/com_ugc_new/images/ugc/' . $field_value;
+						} else {
+							$result = $field_value;
+						}
 		break;
 		}
 		break;

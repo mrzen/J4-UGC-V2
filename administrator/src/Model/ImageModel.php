@@ -207,6 +207,126 @@ class ImageModel extends AdminModel
 					$table->review_id = '';
 				}
 
+				if (!empty($table->image1))
+				{
+					if (is_array($table->image1))
+					{
+						$table->image1 = implode(',', $table->image1);
+					}
+				}
+				else
+				{
+					$table->image1 = '';
+				}
+
+				if (!empty($table->image2))
+				{
+					if (is_array($table->image2))
+					{
+						$table->image2 = implode(',', $table->image2);
+					}
+				}
+				else
+				{
+					$table->image2 = '';
+				}
+
+				if (!empty($table->image3))
+				{
+					if (is_array($table->image3))
+					{
+						$table->image3 = implode(',', $table->image3);
+					}
+				}
+				else
+				{
+					$table->image3 = '';
+				}
+
+				if (!empty($table->image4))
+				{
+					if (is_array($table->image4))
+					{
+						$table->image4 = implode(',', $table->image4);
+					}
+				}
+				else
+				{
+					$table->image4 = '';
+				}
+
+				if (!empty($table->image5))
+				{
+					if (is_array($table->image5))
+					{
+						$table->image5 = implode(',', $table->image5);
+					}
+				}
+				else
+				{
+					$table->image5 = '';
+				}
+
+				if (!empty($table->image6))
+				{
+					if (is_array($table->image6))
+					{
+						$table->image6 = implode(',', $table->image6);
+					}
+				}
+				else
+				{
+					$table->image6 = '';
+				}
+
+				if (!empty($table->image7))
+				{
+					if (is_array($table->image7))
+					{
+						$table->image7 = implode(',', $table->image7);
+					}
+				}
+				else
+				{
+					$table->image7 = '';
+				}
+
+				if (!empty($table->image8))
+				{
+					if (is_array($table->image8))
+					{
+						$table->image8 = implode(',', $table->image8);
+					}
+				}
+				else
+				{
+					$table->image8 = '';
+				}
+
+				if (!empty($table->image9))
+				{
+					if (is_array($table->image9))
+					{
+						$table->image9 = implode(',', $table->image9);
+					}
+				}
+				else
+				{
+					$table->image9 = '';
+				}
+
+				if (!empty($table->image10))
+				{
+					if (is_array($table->image10))
+					{
+						$table->image10 = implode(',', $table->image10);
+					}
+				}
+				else
+				{
+					$table->image10 = '';
+				}
+
 
 					// Trigger the before save event.
 					$result = $app->triggerEvent($this->event_before_save, array($context, &$table, true, $table));

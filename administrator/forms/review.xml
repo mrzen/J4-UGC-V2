@@ -23,6 +23,16 @@
     <field name="user_location" filter="safehtml" type="text" required="true" label="COM_UGC_NEW_FORM_LBL_REVIEW_USER_LOCATION" description="COM_UGC_NEW_FORM_DESC_REVIEW_USER_LOCATION" hint="COM_UGC_NEW_FORM_LBL_REVIEW_USER_LOCATION"/>
     <field name="country" filter="safehtml" type="text" required="true" label="COM_UGC_NEW_FORM_LBL_REVIEW_COUNTRY" description="COM_UGC_NEW_FORM_DESC_REVIEW_COUNTRY" hint="COM_UGC_NEW_FORM_LBL_REVIEW_COUNTRY"/>
     <field name="tags" mode="ajax" multiple="true" custom="allow" type="tag" label="JTAG" description="JTAG_FIELD_SELECT_DESC" hint="COM_UGC_NEW_FORM_LBL_REVIEW_TAGS"/>
+    <field name="image1" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE1" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE1" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE1"/>
+    <field name="image2" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE2" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE2" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE2"/>
+    <field name="image3" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE3" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE3" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE3"/>
+    <field name="image4" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE4" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE4" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE4"/>
+    <field name="image5" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE5" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE5" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE5"/>
+    <field name="image6" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE6" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE6" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE6"/>
+    <field name="image7" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE7" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE7" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE7"/>
+    <field name="image8" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE8" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE8" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE8"/>
+    <field name="image9" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE9" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE9" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE9"/>
+    <field name="image10" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE10" description="COM_UGC_NEW_FORM_DESC_REVIEW_IMAGE10" hint="COM_UGC_NEW_FORM_LBL_REVIEW_IMAGE10"/>
     <field name="videos" filter="safehtml" type="text" label="COM_UGC_NEW_FORM_LBL_REVIEW_VIDEOS" description="COM_UGC_NEW_FORM_DESC_REVIEW_VIDEOS" hint="COM_UGC_NEW_FORM_LBL_REVIEW_VIDEOS"/>
     <field name="review_reply" filter="safehtml" type="textarea" label="COM_UGC_NEW_FORM_LBL_REVIEW_REVIEW_REPLY" description="COM_UGC_NEW_FORM_DESC_REVIEW_REVIEW_REPLY" hint="COM_UGC_NEW_FORM_LBL_REVIEW_REVIEW_REPLY"/>
     <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>

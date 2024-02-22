@@ -25,6 +25,7 @@ use Joomla\CMS\Categories\CategoryFactoryInterface;
 use Joomla\CMS\Categories\CategoryInterface;
 use Joomla\Database\DatabaseInterface;
 use Joomla\CMS\Menu\AbstractMenu;
+use Joomla\CMS\Component\ComponentHelper;
 
 /**
  * Class Ugc_newRouter
@@ -53,7 +54,7 @@ class Router extends RouterView
 
 	public function __construct(SiteApplication $app, AbstractMenu $menu, CategoryFactoryInterface $categoryFactory, DatabaseInterface $db)
 	{
-		$params = Factory::getApplication()->getParams('com_ugc_new');
+		$params = ComponentHelper::getParams('com_ugc_new');
 		$this->noIDs = (bool) $params->get('sef_ids');
 		$this->categoryFactory = $categoryFactory;
 		

@@ -17,6 +17,16 @@
     <field name="image_path" filter="safehtml" type="text" required="true" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE_PATH" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE_PATH" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE_PATH"/>
     <field name="title" filter="safehtml" type="text" label="JGLOBAL_TITLE" description="JFIELD_TITLE_DESC" hint="COM_UGC_NEW_FORM_LBL_IMAGE_TITLE"/>
     <field name="created_at" type="timecreated" required="true" label="COM_UGC_NEW_FORM_LBL_IMAGE_CREATED_AT" description="COM_UGC_NEW_FORM_DESC_IMAGE_CREATED_AT" hint="COM_UGC_NEW_FORM_LBL_IMAGE_CREATED_AT"/>
+    <field name="image1" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE1" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE1" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE1"/>
+    <field name="image2" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE2" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE2" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE2"/>
+    <field name="image3" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE3" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE3" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE3"/>
+    <field name="image4" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE4" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE4" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE4"/>
+    <field name="image5" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE5" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE5" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE5"/>
+    <field name="image6" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE6" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE6" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE6"/>
+    <field name="image7" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE7" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE7" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE7"/>
+    <field name="image8" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE8" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE8" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE8"/>
+    <field name="image9" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE9" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE9" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE9"/>
+    <field name="image10" accept="image/png,image/jpeg" type="file" label="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE10" description="COM_UGC_NEW_FORM_DESC_IMAGE_IMAGE10" hint="COM_UGC_NEW_FORM_LBL_IMAGE_IMAGE10"/>
     <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
   </fieldset>
   <fieldset name="accesscontrol">

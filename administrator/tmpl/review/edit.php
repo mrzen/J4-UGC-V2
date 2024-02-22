@@ -52,6 +52,116 @@ HTMLHelper::_('bootstrap.tooltip');
 		<div class="col-md-12 form-horizontal">
 			<fieldset class="adminform">
 				<legend><?php echo Text::_('COM_UGC_NEW_FIELDSET_MEDIA'); ?></legend>
+				<?php echo $this->form->renderField('image1'); ?>
+				<?php if (!empty($this->item->image1)) : ?>
+					<?php $image1Files = array(); ?>
+					<?php foreach ((array)$this->item->image1 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image1Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image1_hidden]" id="jform_image1_hidden" value="<?php echo implode(',', $image1Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image2'); ?>
+				<?php if (!empty($this->item->image2)) : ?>
+					<?php $image2Files = array(); ?>
+					<?php foreach ((array)$this->item->image2 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image2Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image2_hidden]" id="jform_image2_hidden" value="<?php echo implode(',', $image2Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image3'); ?>
+				<?php if (!empty($this->item->image3)) : ?>
+					<?php $image3Files = array(); ?>
+					<?php foreach ((array)$this->item->image3 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image3Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image3_hidden]" id="jform_image3_hidden" value="<?php echo implode(',', $image3Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image4'); ?>
+				<?php if (!empty($this->item->image4)) : ?>
+					<?php $image4Files = array(); ?>
+					<?php foreach ((array)$this->item->image4 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image4Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image4_hidden]" id="jform_image4_hidden" value="<?php echo implode(',', $image4Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image5'); ?>
+				<?php if (!empty($this->item->image5)) : ?>
+					<?php $image5Files = array(); ?>
+					<?php foreach ((array)$this->item->image5 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image5Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image5_hidden]" id="jform_image5_hidden" value="<?php echo implode(',', $image5Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image6'); ?>
+				<?php if (!empty($this->item->image6)) : ?>
+					<?php $image6Files = array(); ?>
+					<?php foreach ((array)$this->item->image6 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image6Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image6_hidden]" id="jform_image6_hidden" value="<?php echo implode(',', $image6Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image7'); ?>
+				<?php if (!empty($this->item->image7)) : ?>
+					<?php $image7Files = array(); ?>
+					<?php foreach ((array)$this->item->image7 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image7Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image7_hidden]" id="jform_image7_hidden" value="<?php echo implode(',', $image7Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image8'); ?>
+				<?php if (!empty($this->item->image8)) : ?>
+					<?php $image8Files = array(); ?>
+					<?php foreach ((array)$this->item->image8 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image8Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image8_hidden]" id="jform_image8_hidden" value="<?php echo implode(',', $image8Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image9'); ?>
+				<?php if (!empty($this->item->image9)) : ?>
+					<?php $image9Files = array(); ?>
+					<?php foreach ((array)$this->item->image9 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image9Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image9_hidden]" id="jform_image9_hidden" value="<?php echo implode(',', $image9Files); ?>" />
+				<?php endif; ?>
+				<?php echo $this->form->renderField('image10'); ?>
+				<?php if (!empty($this->item->image10)) : ?>
+					<?php $image10Files = array(); ?>
+					<?php foreach ((array)$this->item->image10 as $fileSingle) : ?>
+						<?php if (!is_array($fileSingle)) : ?>
+							<a href="<?php echo Route::_(Uri::root() . 'ugc/images' . DIRECTORY_SEPARATOR . $fileSingle, false);?>"><?php echo $fileSingle; ?></a> | 
+							<?php $image10Files[] = $fileSingle; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<input type="hidden" name="jform[image10_hidden]" id="jform_image10_hidden" value="<?php echo implode(',', $image10Files); ?>" />
+				<?php endif; ?>
 				<?php echo $this->form->renderField('videos'); ?>
 			</fieldset>
 		</div>
