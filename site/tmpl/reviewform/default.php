@@ -85,11 +85,7 @@ $canEdit = Ugc_newHelper::canUserEdit($this->item, $user);
             <div class="my-3">
                 <?php echo $this->form->renderField('user_location'); ?>
             </div>
-          
-             <div class="my-3">
-                <?php echo $this->form->renderField('tags'); ?>
-            </div>
-
+    
 
             <div class="media-upload collapse mt-3" id="mediaUpload" class="">
                 <div class="bg-light p-5">
@@ -221,7 +217,7 @@ $canEdit = Ugc_newHelper::canUserEdit($this->item, $user);
                     document.querySelector('#form-review').submit();
                 });
             });
-						
+
             document.querySelector("#jform_trip_code").value = "<?=$holidayCode;?>";
             document.querySelector("#jform_user_id").value = "<?=$userId;?>";
             document.querySelector("#jform_user_name").value = "<?=$userName;?>";
