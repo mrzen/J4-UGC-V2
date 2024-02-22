@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+    <name>com_ugc_new</name>
+    <creationDate>2024-02-21</creationDate>
+    <copyright>2023 Matt Illston</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Matt Illston</author>
+    <authorEmail>matt.illston@mrzen.com</authorEmail>
+    <authorUrl>http://mrzen.com</authorUrl>
+    <version>CVS: 1.0.0</version>
+    <description>COM_UGC_NEW_XML_DESCRIPTION</description>
+    <namespace path="src">Ugc\Component\Ugc_new</namespace>
+    
+    <scriptfile>script.php</scriptfile>
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+        </schemas>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <api>
+		<files folder="webservices">
+			<folder>src</folder>
+		</files>
+	</api>
+
+    <files folder="site">
+        <folder>src</folder>
+        <folder>forms</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media destination="com_ugc_new" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+    <languages folder="site/languages">
+        
+			<language tag="en-GB">en-GB/com_ugc_new.ini</language>
+    </languages>
+    <administration>
+        <menu>COM_UGC_NEW</menu>
+        <submenu>
+            
+			<menu link="option=com_ugc_new&amp;view=reviews" view="reviews" alt="Ugc_new/Reviews">COM_UGC_NEW_TITLE_REVIEWS</menu>
+
+			<menu link="option=com_ugc_new&amp;view=images" view="images" alt="Ugc_new/Images">COM_UGC_NEW_TITLE_IMAGES</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>forms</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>presets</folder>
+            <folder>sql</folder>
+        </files>
+        <languages folder="administrator/languages">
+            
+			<language tag="en-GB">en-GB/com_ugc_new.ini</language>
+			<language tag="en-GB">en-GB/com_ugc_new.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+		<plugin group="finder" plugin="ugc_newreviews"/>
+		<plugin group="privacy" plugin="ugc_newimages"/>
+		<plugin group="webservices" plugin="ugc_new"/>
+    </plugins>
+    <modules>
+		<module module="mod_ugc_new" />
+	</modules>
+
+    <updateservers>
+        <server type="extension" priority="1" name="com_ugc_new">https://nocdn.component-creator.com/index.php?task=builder.preupdatecheckhook&amp;option=com_combuilder&amp;component=NzI2MTEtMjEwODg1</server>
+    </updateservers>
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

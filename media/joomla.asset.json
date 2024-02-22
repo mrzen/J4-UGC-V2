@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_ugc_new",
+  "version": "CVS: 1.0.0",
+  "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+  "assets": [
+    {
+      "name": "com_ugc_new.admin",
+      "type": "style",
+      "uri": "com_ugc_new/admin.css"
+    },
+    {
+      "name": "com_ugc_new.admin",
+      "type": "script",
+      "uri": "com_ugc_new/admin.js",
+      "dependencies": [
+        "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+        "name": "com_ugc_new.list",
+        "type": "style",
+        "uri": "com_ugc_new/list.css"
+    }
+  ]
+}

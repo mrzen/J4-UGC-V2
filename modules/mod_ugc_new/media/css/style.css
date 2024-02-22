@@ -1,0 +1,26 @@
+/**
+ * @version     CVS: 1.0.0
+ * @package     com_ugc_new
+ * @subpackage  mod_ugc_new
+ * @copyright   2023 Matt Illston
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @author      Matt Illston <matt.illston@mrzen.com>
+ */
+
+.jcc-table {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.jcc-table tr{
+    border: none;
+}
+
+.jcc-table td, .jcc-table th{
+    padding: 8px;
+    line-height: 18px;
+    text-align: left;
+    vertical-align: top;
+    border: none;
+    border-top: 1px solid #ddd;
+}
