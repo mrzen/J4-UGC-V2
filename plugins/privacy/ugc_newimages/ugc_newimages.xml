@@ -2,7 +2,7 @@
 <extension version="4.0" type="plugin" group="privacy">
     <name>plg_privacy_ugc_newimages</name>
     <author>Matt Illston</author>
-    <creationDate>2024-02-21</creationDate>
+    <creationDate>2024-02-22</creationDate>
     <copyright>2023 Matt Illston</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>matt.illston@mrzen.com</authorEmail>

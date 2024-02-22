@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4.0" method="upgrade" client="site">
     <name>MOD_UGC_NEW_NAME</name>
-    <creationDate>2024-02-21</creationDate>
+    <creationDate>2024-02-22</creationDate>
     <copyright>2023 Matt Illston</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <author>Matt Illston</author>

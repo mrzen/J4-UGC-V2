@@ -31,7 +31,7 @@ class com_ugc_newInstallerScript extends InstallerScript
 	 *
 	 * @var string
 	 */
-	protected $extension = 'UGC (New)';
+	protected $extension = 'UGC';
 
 	/**
 	 * The minimum Joomla! version required to install this extension

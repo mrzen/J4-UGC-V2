@@ -317,6 +317,7 @@ class ReviewformModel extends FormModel
 		$id    = (!empty($data['id'])) ? $data['id'] : (int) $this->getState('review.id');
 		$state = (!empty($data['state'])) ? 1 : 0;
 		$user  = Factory::getApplication()->getIdentity();
+
 		
 		if ($id)
 		{
@@ -328,9 +329,6 @@ class ReviewformModel extends FormModel
 			// Check the user can create new items in this section
 			$authorised = $user->authorise('core.create', 'com_ugc_new');
 		}
-
-		// throw an exception and print out the data
-		throw new \Exception(print_r($data, true));
 
 		if ($authorised !== true)
 		{
@@ -344,6 +342,11 @@ class ReviewformModel extends FormModel
 			$table->load($id);
 		}
 
+		if (!empty($data['tags']) && $data['tags'][0] != '')
+		{
+			$table->newTags = $data['tags'];
+		}
+		
 	try{
 			if ($table->save($data) === true)
 			{
@@ -358,11 +361,9 @@ class ReviewformModel extends FormModel
 		{
 			Factory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 			return false;
-		}	
-
-		return parent::save($data);
+		}
+			
 	}
-
 
 	/**
 	 * Method to delete data

@@ -83,7 +83,7 @@ class ReviewformController extends FormController
 
 		// Get the user data.
 		$data = $this->input->get('jform', array(), 'array');
-		
+
 		// Validate the posted data.
 		$form = $model->getForm();
 
