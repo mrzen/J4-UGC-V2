@@ -446,3 +446,4 @@ class ReviewModel extends AdminModel
 		}
 	}
 }
+

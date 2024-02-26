@@ -7,173 +7,59 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Ugc\Component\Ugc_new\Site\Model;
+namespace Ugc\Component\Ugc_new\Administrator\Model;
 // No direct access.
 defined('_JEXEC') or die;
 
-use \Joomla\CMS\Factory;
-use \Joomla\Utilities\ArrayHelper;
-use \Joomla\CMS\Language\Text;
 use \Joomla\CMS\Table\Table;
-use \Joomla\CMS\MVC\Model\ItemModel;
+use \Joomla\CMS\Factory;
+use \Joomla\CMS\Language\Text;
+use \Joomla\CMS\Plugin\PluginHelper;
+use \Joomla\CMS\MVC\Model\AdminModel;
 use \Joomla\CMS\Helper\TagsHelper;
-use \Joomla\CMS\Object\CMSObject;
-use \Joomla\CMS\User\UserFactoryInterface;
-use \Ugc\Component\Ugc_new\Site\Helper\Ugc_newHelper;
+use \Joomla\CMS\Filter\OutputFilter;
 
 /**
- * Ugc_new model.
+ * Review model.
  *
  * @since  1.0.0
  */
-class ReviewModel extends ItemModel
+class ReviewModel extends AdminModel
 {
-	public $_item;
+	/**
+	 * @var    string  The prefix to use with controller messages.
+	 *
+	 * @since  1.0.0
+	 */
+	protected $text_prefix = 'COM_UGC_NEW';
+
+	/**
+	 * @var    string  Alias to manage history control
+	 *
+	 * @since  1.0.0
+	 */
+	public $typeAlias = 'com_ugc_new.review';
+
+	/**
+	 * @var    null  Item data
+	 *
+	 * @since  1.0.0
+	 */
+	protected $item = null;
 
 	
-
 	
 
 	/**
-	 * Method to auto-populate the model state.
+	 * Returns a reference to the a Table object, always creating it.
 	 *
-	 * Note. Calling getState in this method will result in recursion.
+	 * @param   string  $type    The table type to instantiate
+	 * @param   string  $prefix  A prefix for the table class name. Optional.
+	 * @param   array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  void
+	 * @return  Table    A database object
 	 *
 	 * @since   1.0.0
-	 *
-	 * @throws Exception
-	 */
-	protected function populateState()
-	{
-		$app  = Factory::getApplication('com_ugc_new');
-		$user = $app->getIdentity();
-
-		// Check published state
-		if ((!$user->authorise('core.edit.state', 'com_ugc_new')) && (!$user->authorise('core.edit', 'com_ugc_new')))
-		{
-			$this->setState('filter.published', 1);
-			$this->setState('filter.archived', 2);
-		}
-
-		// Load state from the request userState on edit or from the passed variable on default
-		if (Factory::getApplication()->input->get('layout') == 'edit')
-		{
-			$id = Factory::getApplication()->getUserState('com_ugc_new.edit.review.id');
-		}
-		else
-		{
-			$id = Factory::getApplication()->input->get('id');
-			Factory::getApplication()->setUserState('com_ugc_new.edit.review.id', $id);
-		}
-
-		$this->setState('review.id', $id);
-
-		// Load the parameters.
-		$params       = $app->getParams();
-		$params_array = $params->toArray();
-
-		if (isset($params_array['item_id']))
-		{
-			$this->setState('review.id', $params_array['item_id']);
-		}
-
-		$this->setState('params', $params);
-	}
-
-	/**
-	 * Method to get an object.
-	 *
-	 * @param   integer $id The id of the object to get.
-	 *
-	 * @return  mixed    Object on success, false on failure.
-	 *
-	 * @throws Exception
-	 */
-	public function getItem($id = null)
-	{
-		if ($this->_item === null)
-		{
-			$this->_item = false;
-
-			if (empty($id))
-			{
-				$id = $this->getState('review.id');
-			}
-
-			// Get a level row instance.
-			$table = $this->getTable();
-
-			// Attempt to load the row.
-			if ($table && $table->load($id))
-			{
-				
-
-				// Check published state.
-				if ($published = $this->getState('filter.published'))
-				{
-					if (isset($table->state) && $table->state != $published)
-					{
-						throw new \Exception(Text::_('COM_UGC_NEW_ITEM_NOT_LOADED'), 403);
-					}
-				}
-
-				// Convert the Table to a clean CMSObject.
-				$properties  = $table->getProperties(1);
-				$this->_item = ArrayHelper::toObject($properties, CMSObject::class);
-
-				
-			}
-
-			if (empty($this->_item))
-			{
-				throw new \Exception(Text::_('COM_UGC_NEW_ITEM_NOT_LOADED'), 404);
-			}
-		}
-
-		
-
-		 $container = \Joomla\CMS\Factory::getContainer();
-
-		 $userFactory = $container->get(UserFactoryInterface::class);
-
-		if (isset($this->_item->created_by))
-		{
-			$user = $userFactory->loadUserById($this->_item->created_by);
-			$this->_item->created_by_name = $user->name;
-		}
-
-		 $container = \Joomla\CMS\Factory::getContainer();
-
-		 $userFactory = $container->get(UserFactoryInterface::class);
-
-		if (isset($this->_item->modified_by))
-		{
-			$user = $userFactory->loadUserById($this->_item->modified_by);
-			$this->_item->modified_by_name = $user->name;
-		}
-
-			if ( !empty($this->_item->id) ) {
-					$tagsHelper = new TagsHelper;
-					$ids = $tagsHelper->getTagIds($this->_item->id, 'com_ugc_new.review');
-					$tagNames = $tagsHelper->getTagNames(explode(',', $ids));
-					$this->_item->tags = implode(', ', $tagNames);
-				}
-
-		return $this->_item;
-	}
-	
-
-
-	/**
-	 * Get an instance of Table class
-	 *
-	 * @param   string $type   Name of the Table class to get an instance of.
-	 * @param   string $prefix Prefix for the table class name. Optional.
-	 * @param   array  $config Array of configuration values for the Table object. Optional.
-	 *
-	 * @return  Table|bool Table if success, false on failure.
 	 */
 	public function getTable($type = 'Review', $prefix = 'Administrator', $config = array())
 	{
@@ -181,144 +67,382 @@ class ReviewModel extends ItemModel
 	}
 
 	/**
-	 * Get the id of an item by alias
-	 * @param   string $alias Item alias
+	 * Method to get the record form.
 	 *
-	 * @return  mixed
-	 * 
-	 * @deprecated  No replacement
-	 */
-	public function getItemIdByAlias($alias)
-	{
-		$table      = $this->getTable();
-		$properties = $table->getProperties();
-		$result     = null;
-		$aliasKey   = null;
-		if (method_exists($this, 'getAliasFieldNameByView'))
-		{
-			$aliasKey   = $this->getAliasFieldNameByView('review');
-		}
-		
-
-		if (key_exists('alias', $properties))
-		{
-			$table->load(array('alias' => $alias));
-			$result = $table->id;
-		}
-		elseif (isset($aliasKey) && key_exists($aliasKey, $properties))
-		{
-			$table->load(array($aliasKey => $alias));
-			$result = $table->id;
-		}
-		
-			return $result;
-		
-	}
-
-	/**
-	 * Method to check in an item.
+	 * @param   array    $data      An optional array of data for the form to interogate.
+	 * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not.
 	 *
-	 * @param   integer $id The id of the row to check out.
-	 *
-	 * @return  boolean True on success, false on failure.
+	 * @return  \JForm|boolean  A \JForm object on success, false on failure
 	 *
 	 * @since   1.0.0
 	 */
-	public function checkin($id = null)
+	public function getForm($data = array(), $loadData = true)
 	{
-		// Get the id.
-		$id = (!empty($id)) ? $id : (int) $this->getState('review.id');
-				
-		if ($id)
-		{
-			// Initialise the table
-			$table = $this->getTable();
+		// Initialise variables.
+		$app = Factory::getApplication();
 
-			// Attempt to check the row in.
-			if (method_exists($table, 'checkin'))
-			{
-				if (!$table->checkin($id))
-				{
-					return false;
-				}
-			}
+		// Get the form.
+		$form = $this->loadForm(
+								'com_ugc_new.review', 
+								'review',
+								array(
+									'control' => 'jform',
+									'load_data' => $loadData 
+								)
+							);
+
+		
+
+		if (empty($form))
+		{
+			return false;
 		}
 
-		return true;
-		
-	}
-
-	/**
-	 * Method to check out an item for editing.
-	 *
-	 * @param   integer $id The id of the row to check out.
-	 *
-	 * @return  boolean True on success, false on failure.
-	 *
-	 * @since   1.0.0
-	 */
-	public function checkout($id = null)
-	{
-		// Get the user id.
-		$id = (!empty($id)) ? $id : (int) $this->getState('review.id');
-
-				
-		if ($id)
-		{
-			// Initialise the table
-			$table = $this->getTable();
-
-			// Get the current user object.
-			$user = Factory::getApplication()->getIdentity();
-
-			// Attempt to check the row out.
-			if (method_exists($table, 'checkout'))
-			{
-				if (!$table->checkout($user->get('id'), $id))
-				{
-					return false;
-				}
-			}
-		}
-
-		return true;
-				
-	}
-
-	/**
-	 * Publish the element
-	 *
-	 * @param   int $id    Item id
-	 * @param   int $state Publish state
-	 *
-	 * @return  boolean
-	 */
-	public function publish($id, $state)
-	{
-		$table = $this->getTable();
-				
-		$table->load($id);
-		$table->state = $state;
-
-		return $table->store();
-				
-	}
-
-	/**
-	 * Method to delete an item
-	 *
-	 * @param   int $id Element id
-	 *
-	 * @return  bool
-	 */
-	public function delete($id)
-	{
-		$table = $this->getTable();
-
-		
-			return $table->delete($id);
-		
+		return $form;
 	}
 
 	
+	/**
+	* Method to save the form data.
+	*
+	* @param   array  $data  The form data.
+	*
+	* @return  boolean  True on success, False on error.
+	*
+	* @since   1.6
+	*/
+	public function save($data)
+	{
+		if(\array_key_exists('tags', $data) && !\is_array($data['tags']) && !empty($data['tags']))
+		{
+			$data['tags'] = [$data['tags']];
+		}
+		$holidayCode = $data['trip_code'];
+		// GraphQL Query to get main holiday data
+		$client = Factory::getContainer()->get('rezkit.tours');
+		$v = $client->query(<<<'GRAPHQL'
+
+		query holiday($holidayCode: String!) {
+				holiday(code: $holidayCode) {
+					id
+					code
+					categories {
+						name
+						parent {
+							name
+						}
+					}
+					versions(published: true) {
+							id
+							name
+							code
+							locations {
+								name
+							}
+						}
+				}
+		}
+		GRAPHQL
+		, ['holidayCode' => $holidayCode,
+		] );
+
+		// ----------------------------------------------------
+		// Execute fetch of holiday data from GraphQL query
+		// ----------------------------------------------------
+		$this->holidayData = $v->getData();
+
+		if ($errors = $v->getErrors()) {
+			dump($errors);
+		}
+    // Extract location names and add them to tags
+    foreach ($this->holidayData['holiday']['versions'] as $version) {
+        foreach ($version['locations'] as $location) {
+            $tags[] = '#new#'.$location['name'];
+        }
+    }
+
+		foreach ($this->holidayData['holiday']['categories'] as $category) {
+			$tags[] = '#new#'.$category['name'];
+			if (isset($category['parent'])) {
+				$tags[] = '#new#'.$category['parent']['name'];
+			}
+		}
+
+    // If tags exist in $data and it's not an array, convert it to an array
+    if (array_key_exists('tags', $data) && !is_array($data['tags']) && !empty($data['tags'])) {
+        $data['tags'] = [$data['tags']];
+    }
+
+    // Merge extracted tags with existing tags (if any)
+    $data['tags'] = array_merge($data['tags'] ?? [], $tags);
+		
+		return parent::save($data);
+		}
+
+	/**
+	 * Method to get the data that should be injected in the form.
+	 *
+	 * @return  mixed  The data for the form.
+	 *
+	 * @since   1.0.0
+	 */
+	protected function loadFormData()
+	{
+		// Check the session for previously entered form data.
+		$data = Factory::getApplication()->getUserState('com_ugc_new.edit.review.data', array());
+
+		if (empty($data))
+		{
+			if ($this->item === null)
+			{
+				$this->item = $this->getItem();
+			}
+
+			$data = $this->item;
+			
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Method to get a single record.
+	 *
+	 * @param   integer  $pk  The id of the primary key.
+	 *
+	 * @return  mixed    Object on success, false on failure.
+	 *
+	 * @since   1.0.0
+	 */
+	public function getItem($pk = null)
+	{
+		
+			if ($item = parent::getItem($pk))
+			{
+				if (isset($item->params))
+				{
+					$item->params = json_encode($item->params);
+				}
+				
+			if ( !empty($item->id) ) {
+					$tagsHelper = new TagsHelper;
+					$item->tags = $tagsHelper->getTagIds($item->id, 'com_ugc_new.review');
+				}
+				// Do any procesing on fields here if needed
+			}
+
+			return $item;
+		
+	}
+
+	/**
+	 * Method to duplicate an Review
+	 *
+	 * @param   array  &$pks  An array of primary key IDs.
+	 *
+	 * @return  boolean  True if successful.
+	 *
+	 * @throws  Exception
+	 */
+	public function duplicate(&$pks)
+	{
+		$app = Factory::getApplication();
+		$user = $app->getIdentity();
+
+		// Access checks.
+		if (!$user->authorise('core.create', 'com_ugc_new'))
+		{
+			throw new \Exception(Text::_('JERROR_CORE_CREATE_NOT_PERMITTED'));
+		}
+
+		$context    = $this->option . '.' . $this->name;
+
+		// Include the plugins for the save events.
+		PluginHelper::importPlugin($this->events_map['save']);
+
+		$table = $this->getTable();
+
+		foreach ($pks as $pk)
+		{
+			
+				if ($table->load($pk, true))
+				{
+					// Reset the id to create a new record.
+					$table->id = 0;
+
+					if (!$table->check())
+					{
+						throw new \Exception($table->getError());
+					}
+					
+				if (!empty($table->image1))
+				{
+					if (is_array($table->image1))
+					{
+						$table->image1 = implode(',', $table->image1);
+					}
+				}
+				else
+				{
+					$table->image1 = '';
+				}
+
+				if (!empty($table->image2))
+				{
+					if (is_array($table->image2))
+					{
+						$table->image2 = implode(',', $table->image2);
+					}
+				}
+				else
+				{
+					$table->image2 = '';
+				}
+
+				if (!empty($table->image3))
+				{
+					if (is_array($table->image3))
+					{
+						$table->image3 = implode(',', $table->image3);
+					}
+				}
+				else
+				{
+					$table->image3 = '';
+				}
+
+				if (!empty($table->image4))
+				{
+					if (is_array($table->image4))
+					{
+						$table->image4 = implode(',', $table->image4);
+					}
+				}
+				else
+				{
+					$table->image4 = '';
+				}
+
+				if (!empty($table->image5))
+				{
+					if (is_array($table->image5))
+					{
+						$table->image5 = implode(',', $table->image5);
+					}
+				}
+				else
+				{
+					$table->image5 = '';
+				}
+
+				if (!empty($table->image6))
+				{
+					if (is_array($table->image6))
+					{
+						$table->image6 = implode(',', $table->image6);
+					}
+				}
+				else
+				{
+					$table->image6 = '';
+				}
+
+				if (!empty($table->image7))
+				{
+					if (is_array($table->image7))
+					{
+						$table->image7 = implode(',', $table->image7);
+					}
+				}
+				else
+				{
+					$table->image7 = '';
+				}
+
+				if (!empty($table->image8))
+				{
+					if (is_array($table->image8))
+					{
+						$table->image8 = implode(',', $table->image8);
+					}
+				}
+				else
+				{
+					$table->image8 = '';
+				}
+
+				if (!empty($table->image9))
+				{
+					if (is_array($table->image9))
+					{
+						$table->image9 = implode(',', $table->image9);
+					}
+				}
+				else
+				{
+					$table->image9 = '';
+				}
+
+				if (!empty($table->image10))
+				{
+					if (is_array($table->image10))
+					{
+						$table->image10 = implode(',', $table->image10);
+					}
+				}
+				else
+				{
+					$table->image10 = '';
+				}
+
+
+					// Trigger the before save event.
+					$result = $app->triggerEvent($this->event_before_save, array($context, &$table, true, $table));
+
+					if (in_array(false, $result, true) || !$table->store())
+					{
+						throw new \Exception($table->getError());
+					}
+
+					// Trigger the after save event.
+					$app->triggerEvent($this->event_after_save, array($context, &$table, true));
+				}
+				else
+				{
+					throw new \Exception($table->getError());
+				}
+			
+		}
+
+		// Clean cache
+		$this->cleanCache();
+
+		return true;
+	}
+
+	/**
+	 * Prepare and sanitise the table prior to saving.
+	 *
+	 * @param   Table  $table  Table Object
+	 *
+	 * @return  void
+	 *
+	 * @since   1.0.0
+	 */
+	protected function prepareTable($table)
+	{
+		jimport('joomla.filter.output');
+
+		if (empty($table->id))
+		{
+			// Set ordering to the last item if not set
+			if (@$table->ordering === '')
+			{
+				$db = $this->getDbo();
+				$db->setQuery('SELECT MAX(ordering) FROM #__ugc_reviews');
+				$max             = $db->loadResult();
+				$table->ordering = $max + 1;
+			}
+		}
+	}
 }
