@@ -46,6 +46,8 @@ class HtmlView extends BaseHtmlView
 
 		$this->state = $this->get('State');
 		$this->items = $this->get('Items');
+		$this->state->set('list.ordering', 'a.created_at');
+		$this->state->set('list.direction', 'ASC');
 		$this->pagination = $this->get('Pagination');
 		$this->params = $app->getParams('com_ugc_new');
 		

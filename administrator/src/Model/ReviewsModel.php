@@ -235,10 +235,11 @@ class ReviewsModel extends ListModel
 				
 			}
 		}
+
 		
 		// Add the list ordering clause.
-		$orderCol  = $this->state->get('list.ordering', '');
-		$orderDirn = $this->state->get('list.direction', 'ASC');
+		if ($orderCol === 'a.') $orderCol = 'a.created_at';
+		$orderDirn = $this->state->get('list.direction', 'DESC');
 
 		if ($orderCol && $orderDirn)
 		{
